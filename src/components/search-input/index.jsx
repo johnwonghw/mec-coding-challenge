@@ -8,6 +8,7 @@ function SearchInput({ history }) {
             <input
                 type='text'
                 placeholder='Search...'
+                className='search-input'
                 onKeyPress={(e) => {
                     if (e.key === 'Enter') {
                         history.push(`/search?key=${e.target.value}`)
