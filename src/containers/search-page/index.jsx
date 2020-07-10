@@ -22,7 +22,7 @@ export default function SearchPage({ location }) {
         } else {
             setProducts([])
         }
-    }, []);
+    }, [location]);
 
     return (
         <div className='search-page-container'>
