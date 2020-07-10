@@ -1,0 +1,10 @@
+.product-container {
+    margin: 10px;
+    width: calc(25% - 20px);
+    .product-image {
+        width: 100%;
+    }
+    .product-name {
+        margin-top: 5px;
+    }
+}
