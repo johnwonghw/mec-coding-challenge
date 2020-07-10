@@ -11,9 +11,7 @@ export function useFetchSearchApi(location, searchQuery) {
         setError('');
         if (searchQuery) {
             setIsLoading(true);
-
             const url = `http://www.mec.ca/api/v1/products/search?keywords=${searchQuery}`;
-
             fetch(url)
                 .then(res => {
                     if (res.status >= 200 && res.status <= 299) {
@@ -29,7 +27,7 @@ export function useFetchSearchApi(location, searchQuery) {
                 })
                 .finally(() => setIsLoading(false))
         } else {
-            setProducts([])
+            setProducts([]);
         }
     }, [location]);
 
@@ -37,18 +35,18 @@ export function useFetchSearchApi(location, searchQuery) {
 }
 
 export default function SearchPage({ location }) {
-    const searchQuery = new URLSearchParams(location.search).get("key");
+    const searchQuery = new URLSearchParams(location.search).get('key');
     const { products, isLoading, error } = useFetchSearchApi(location, searchQuery);
     let body;
 
     if (error) {
-        body = error
+        body = error;
     } else if (isLoading) {
-        body = `Searching for "${searchQuery}"`
+        body = `Searching for "${searchQuery}"`;
     } else if (!searchQuery) {
-        body = 'Please use the search bar to search for products'
+        body = 'Please use the search bar to search for products';
     } else if (!products.length) {
-        body = `Could not find products for "${searchQuery}"`
+        body = `Could not find products for "${searchQuery}"`;
     } else {
         body = products.map(product => (
             <Product
