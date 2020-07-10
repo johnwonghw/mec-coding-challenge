@@ -4,17 +4,6 @@ import { renderHook } from "@testing-library/react-hooks";
 import SearchPage, { useFetchSearchApi } from './';
 import { act } from 'react-dom/test-utils';
 
-test('renders the component', () => {
-    let container;
-    act(() => {
-        container = render(<SearchPage location={{
-            pathname: '/search',
-            search: '?key=shoe'
-        }} />)
-    })
-    expect(container).toMatchSnapshot();
-})
-
 const mockData = {
     products: [
         {
@@ -34,6 +23,18 @@ const mockLocation = {
     pathname: '/search',
     search: '?key=shoe'
 }
+
+
+test('renders the component', () => {
+    let container;
+    act(() => {
+        container = render(<SearchPage location={{
+            pathname: '/search',
+            search: '?key=shoe'
+        }} />)
+    })
+    expect(container).toMatchSnapshot();
+});
 
 describe('useFetchSearchApi', () => {
     test('products saved to state if success', async () => {

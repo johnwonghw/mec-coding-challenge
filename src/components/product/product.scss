@@ -1,10 +1,21 @@
 .product-container {
+    padding: 20px 10px;
+    box-sizing: border-box;
     margin: 10px;
-    width: calc(25% - 20px);
+    width: calc(50% - 20px);
+    @media (min-width: 400px) {
+        width: calc(33.33% - 20px);
+    }
+    @media (min-width: 768px) {
+        width: calc(25% - 20px);
+    }
     .product-image {
         width: 100%;
     }
     .product-name {
         margin-top: 5px;
+    }
+    &:hover {
+        background-color: #eeeeee;
     }
 }
