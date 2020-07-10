@@ -11,9 +11,13 @@ function SearchInput({ history }) {
                 className='search-input'
                 onKeyPress={(e) => {
                     if (e.key === 'Enter') {
-                        history.push(`/search?key=${e.target.value}`)
+                        history.push({
+                            pathname: '/search',
+                            search: `key=${e.target.value}`
+                        })
                     }
                 }}
+                data-testid='search-input'
             />
         </div>
     )
