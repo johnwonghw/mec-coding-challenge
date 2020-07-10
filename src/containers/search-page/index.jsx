@@ -29,7 +29,7 @@ export function useFetchSearchApi(location, searchQuery) {
         } else {
             setProducts([]);
         }
-    }, [location]);
+    }, [location, searchQuery]);
 
     return { products, isLoading, error }
 }
